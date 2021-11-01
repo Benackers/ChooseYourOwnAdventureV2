@@ -1,0 +1,16 @@
+G:\ChooseYourOwnAdventureV2\bin\Debug\net5.0\ChooseYourOwnAdventureV2.exe
+G:\ChooseYourOwnAdventureV2\bin\Debug\net5.0\ChooseYourOwnAdventureV2.deps.json
+G:\ChooseYourOwnAdventureV2\bin\Debug\net5.0\ChooseYourOwnAdventureV2.runtimeconfig.json
+G:\ChooseYourOwnAdventureV2\bin\Debug\net5.0\ChooseYourOwnAdventureV2.runtimeconfig.dev.json
+G:\ChooseYourOwnAdventureV2\bin\Debug\net5.0\ChooseYourOwnAdventureV2.dll
+G:\ChooseYourOwnAdventureV2\bin\Debug\net5.0\ref\ChooseYourOwnAdventureV2.dll
+G:\ChooseYourOwnAdventureV2\bin\Debug\net5.0\ChooseYourOwnAdventureV2.pdb
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.csproj.AssemblyReference.cache
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.GeneratedMSBuildEditorConfig.editorconfig
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.AssemblyInfoInputs.cache
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.AssemblyInfo.cs
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.csproj.CoreCompileInputs.cache
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.dll
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ref\ChooseYourOwnAdventureV2.dll
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.pdb
+G:\ChooseYourOwnAdventureV2\obj\Debug\net5.0\ChooseYourOwnAdventureV2.genruntimeconfig.cache

@@ -8,8 +8,10 @@ namespace ChooseYourOwnAdventureV2
 {
     class Game
     {
+
         public bool isRunning = true;
-        Room CurrentRoom;
+        bool JustLaunched = false;
+        //Room CurrentRoom;
         List<Room> MapRooms = new List<Room>();
         RoomNavigation navigate = new RoomNavigation();
         public Game()
@@ -20,7 +22,7 @@ namespace ChooseYourOwnAdventureV2
             EntryHall.description += "The entrance to the Manor";
 
             navigate.currentRoom = EntryHall;
-            EntryHall.enteredBefore = true;
+            //navigate.currentRoom.enteredBefore = false;
 
             Room DiningHall = new Room();
             DiningHall.roomName += "The Dining Hall";
@@ -30,16 +32,17 @@ namespace ChooseYourOwnAdventureV2
             Lounge.roomName += "The Lounge";
             Lounge.description += "An area for lounging around";
 
-            Lounge.addExit(new Exits(Exits.Directions.south, DiningHall));
-            DiningHall.addExit(new Exits(Exits.Directions.west, EntryHall));
-            DiningHall.addExit(new Exits(Exits.Directions.north, Lounge));
-            EntryHall.addExit(new Exits(Exits.Directions.east, DiningHall));
+            Lounge.addExit(new Exits(Exits.Directions.s, DiningHall));
+            DiningHall.addExit(new Exits(Exits.Directions.w, EntryHall));
+            DiningHall.addExit(new Exits(Exits.Directions.n, Lounge));
+            EntryHall.addExit(new Exits(Exits.Directions.e, DiningHall));
 
             MapRooms.Add(EntryHall);
             MapRooms.Add(DiningHall);
             MapRooms.Add(Lounge);
 
-            Console.WriteLine("Welcome to that game. To move locations, type the direction into the console (ie north).");
+
+            //Console.WriteLine("Welcome to that game. To move locations, type the direction into the console (ie n). Press Enter to start the game.");
 
             // var response = " ";
 
@@ -76,15 +79,19 @@ namespace ChooseYourOwnAdventureV2
 
         public void Update()
         {
+            if (!JustLaunched)
+            {
+                Console.WriteLine("Welcome to that game. To move locations, type the direction into the console(ie n).Press Enter to start the game.");
+                JustLaunched = true;
+            }
             string currentCommand = Console.ReadLine().ToLower();
-
-            // instantly check for a quit
             if (currentCommand == "quit" || currentCommand == "q")
             {
-                navigate.AttemptToChangeRooms(currentCommand);
                 isRunning = false;
                 return;
             }
+            navigate.UnpackExitsInRoom();
+            navigate.AttemptToChangeRooms(currentCommand);
         }
     }
 }

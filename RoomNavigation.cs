@@ -14,24 +14,43 @@ namespace ChooseYourOwnAdventureV2
 
         public void UnpackExitsInRoom()
         {
+            //if (currentRoom.enteredBefore == false)
+            //{
             for (int i = 0; i < currentRoom.exits.Count; i++)
             {
                 exitDictionary.Add(currentRoom.exits[i].direction.ToString(), currentRoom.exits[i].leadsTo);
-                //We just entered a room. We are going to unpack the exits. add them to our list of descriptions and get ready to show them on the screen.
+                //currentRoom.enteredBefore = true;
             }
+            //}
         }
 
         public void AttemptToChangeRooms(string directionBearing)
         {
-            if (exitDictionary.ContainsValue(directionBearing))
+            Console.WriteLine($"You Are in {currentRoom.roomName}, {currentRoom.description}.");
+            for (int i = 0; i < currentRoom.exits.Count; i++)
             {
-                currentRoom = exitDictionary[currentRoom.exits.leadsTo.directionBearing];
+                Console.WriteLine("To the {0} is {1}.", currentRoom.exits[i].direction, currentRoom.exits[i].leadsTo.roomName.ToString());
+            }
+            if (exitDictionary.ContainsKey(directionBearing))
+            {
+                currentRoom = exitDictionary[directionBearing];
                 Console.WriteLine("You head off to the " + directionBearing);
+                ClearExits();
+            }
+            else if (directionBearing == "")
+            {
+                Console.WriteLine("Please enter a valid command");
+                ClearExits();
             }
             else
             {
                 Console.WriteLine("there is no path to the " + directionBearing);
+                ClearExits();
             }
+        }
+        public void ClearExits()
+        {
+            exitDictionary.Clear();
         }
     }
 }

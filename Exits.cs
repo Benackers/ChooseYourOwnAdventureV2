@@ -10,7 +10,7 @@ namespace ChooseYourOwnAdventureV2
         // public Room valueRoom;
         public enum Directions
         {
-            Undefined, north, south, east, west
+            n, s, e, w
         };
 
         public Room leadsTo;

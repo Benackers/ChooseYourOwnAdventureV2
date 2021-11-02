@@ -16,9 +16,9 @@ namespace ChooseYourOwnAdventureV2
         {
             //if (currentRoom.enteredBefore == false)
             //{
-            for (int i = 0; i < currentRoom.exits.Count; i++)
+            for (int i = 0; i < currentRoom.Exits.Count; i++)
             {
-                exitDictionary.Add(currentRoom.exits[i].direction.ToString(), currentRoom.exits[i].leadsTo);
+                exitDictionary.Add(currentRoom.Exits[i].direction.ToString(), currentRoom.Exits[i].leadsTo);
                 //currentRoom.enteredBefore = true;
             }
             //}
@@ -26,15 +26,15 @@ namespace ChooseYourOwnAdventureV2
 
         public void AttemptToChangeRooms(string directionBearing)
         {
-            Console.WriteLine($"You Are in {currentRoom.roomName}, {currentRoom.description}.");
-            for (int i = 0; i < currentRoom.exits.Count; i++)
-            {
-                Console.WriteLine("To the {0} is {1}.", currentRoom.exits[i].direction, currentRoom.exits[i].leadsTo.roomName.ToString());
-            }
             if (exitDictionary.ContainsKey(directionBearing))
             {
                 currentRoom = exitDictionary[directionBearing];
-                Console.WriteLine("You head off to the " + directionBearing);
+                Console.WriteLine("You head off to the {0}...", directionBearing);
+                Console.WriteLine($"You are now in the {currentRoom.roomName}, {currentRoom.description}.");
+                for (int i = 0; i < currentRoom.Exits.Count; i++)
+                {
+                    Console.WriteLine("To the {0} is {1}.", currentRoom.Exits[i].direction, currentRoom.Exits[i].leadsTo.roomName.ToString());
+                }
                 ClearExits();
             }
             else if (directionBearing == "")
@@ -45,6 +45,10 @@ namespace ChooseYourOwnAdventureV2
             else
             {
                 Console.WriteLine("there is no path to the " + directionBearing);
+                for (int i = 0; i < currentRoom.Exits.Count; i++)
+                {
+                    Console.WriteLine("To the {0} is {1}.", currentRoom.Exits[i].direction, currentRoom.Exits[i].leadsTo.roomName.ToString());
+                }
                 ClearExits();
             }
         }

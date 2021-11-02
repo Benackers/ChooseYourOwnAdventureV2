@@ -18,70 +18,37 @@ namespace ChooseYourOwnAdventureV2
         {
             //Create the map
             Room EntryHall = new Room();
-            EntryHall.roomName += "The Entry Hall";
-            EntryHall.description += "The entrance to the Manor";
+            EntryHall.roomName = "The Entry Hall";
+            EntryHall.description = "The entrance to the Manor";
 
             navigate.currentRoom = EntryHall;
             //navigate.currentRoom.enteredBefore = false;
 
             Room DiningHall = new Room();
-            DiningHall.roomName += "The Dining Hall";
-            DiningHall.description += "A place for fine dining";
+            DiningHall.roomName = "The Dining Hall";
+            DiningHall.description = "A place for fine dining";
 
             Room Lounge = new Room();
-            Lounge.roomName += "The Lounge";
-            Lounge.description += "An area for lounging around";
+            Lounge.roomName = "The Lounge";
+            Lounge.description = "An area for lounging around";
 
-            Lounge.addExit(new Exits(Exits.Directions.s, DiningHall));
-            DiningHall.addExit(new Exits(Exits.Directions.w, EntryHall));
-            DiningHall.addExit(new Exits(Exits.Directions.n, Lounge));
-            EntryHall.addExit(new Exits(Exits.Directions.e, DiningHall));
+            Lounge.Exits.Add(new Exits(Exits.Directions.s, DiningHall));
+            DiningHall.Exits.Add(new Exits(Exits.Directions.w, EntryHall));
+            DiningHall.Exits.Add(new Exits(Exits.Directions.n, Lounge));
+            EntryHall.Exits.Add(new Exits(Exits.Directions.e, DiningHall));
 
             MapRooms.Add(EntryHall);
             MapRooms.Add(DiningHall);
             MapRooms.Add(Lounge);
-
-
-            //Console.WriteLine("Welcome to that game. To move locations, type the direction into the console (ie n). Press Enter to start the game.");
-
-            // var response = " ";
-
-            // while (response != "quit")
-            // {
-
-            //     Console.WriteLine($"You Are in {CurrentRoom.roomName}, {CurrentRoom.description}.");
-            //     for (int i = 0; i < CurrentRoom.exits.Count; i++)
-            //     {
-            //         Console.WriteLine("To the {0} is {1}.", CurrentRoom.exits[i].direction, CurrentRoom.exits[i].leadsTo.roomName.ToString());
-            //         CurrentRoom.enteredBefore = true;
-            //     }
-
-            //     Console.WriteLine("Please enter a command.");
-            //     response = Console.ReadLine().ToLower();
-
-            //     for (int i = 0; i < CurrentRoom.exits.Count; i++)
-            //     {
-            //         if (response != CurrentRoom.exits[i].direction.ToString())
-            //         {
-            //             Console.WriteLine("That is not somewhere you can go");
-            //             break;
-            //         }
-            //         else if (response == CurrentRoom.exits[i].direction.ToString())
-            //         {
-            //             Console.WriteLine($"You move off to the {response}");
-            //             CurrentRoom = CurrentRoom.exits[i].leadsTo;
-            //             break;
-            //             //Console.WriteLine("To the {0} is {1}.", CurrentRoom.exits[i].direction, CurrentRoom.exits[i].leadsTo.roomName.ToString());
-            //         }
-            //     }
-            // }
         }
 
         public void Update()
         {
             if (!JustLaunched)
             {
-                Console.WriteLine("Welcome to that game. To move locations, type the direction into the console(ie n).Press Enter to start the game.");
+                Console.WriteLine("Welcome to the game. To move locations, type the direction into the console(ie n).");
+                Console.WriteLine("You are in the Entry Hall, To the E (East) is the Dining Hall");
+                Console.WriteLine("Please enter a direction to move to.");
                 JustLaunched = true;
             }
             string currentCommand = Console.ReadLine().ToLower();

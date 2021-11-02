@@ -7,17 +7,11 @@ namespace ChooseYourOwnAdventureV2
     public class Room
 
     {
-        public List<Exits> exits = new List<Exits>();
+        private List<Exits> _exits = new List<Exits>();
+        public List<Exits> Exits { get { return _exits; } }
         public string roomName;
         public string description;
-        public void addExit(Exits exit)
-        {
-            exits.Add(exit);
-        }
         public bool enteredBefore = false;
-        // public string description;
-        // public string roomName;
-        // public Exit[] exits;
     }
 
 }

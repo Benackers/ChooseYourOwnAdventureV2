@@ -26,7 +26,7 @@ namespace ChooseYourOwnAdventureV2
 
             Room DiningHall = new Room();
             DiningHall.roomName = "The Dining Hall";
-            DiningHall.description = "A place for fine dining";
+            DiningHall.description = "A place for fine dining!";
 
             Room Lounge = new Room();
             Lounge.roomName = "The Lounge";
